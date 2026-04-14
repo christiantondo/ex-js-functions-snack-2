@@ -26,6 +26,10 @@ console.log("Arrow function: La somma dei due numeri è:", sommaArrow(5, 10)); /
 // Crea una arrow function che calcola il quadrato di un numero.
 // Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
 
+const quadrato = n => n * n;
+
+console.log("Il quadrato di n è:", quadrato(8)); // Output: 64
+
 // Snack 3
 // Crea una funzione eseguiOperazione.
 // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
