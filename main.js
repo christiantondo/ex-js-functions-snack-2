@@ -3,7 +3,7 @@
 // Crea una funzione dichiarativa chiamata somma che accetta due numeri e restituisce la loro somma.
 
 function somma(a, b) {
-	return a + b;
+    return a + b;
 }
 
 console.log("Funzione dichiarativa: La somma dei due numeri è:", somma(10, 15)); // Output: 25
@@ -11,7 +11,7 @@ console.log("Funzione dichiarativa: La somma dei due numeri è:", somma(10, 15))
 // Poi, definisci la stessa funzione somma ma come funzione anonima assegnata a una variabile
 
 const sommaNoName = function (a, b) {
-	return a + b;
+    return a + b;
 }
 
 console.log("Funzione anonima: La somma dei due numeri è:", sommaNoName(5, 5)); // Output: 10
@@ -34,9 +34,37 @@ console.log("Il quadrato di n è:", quadrato(8)); // Output: 64
 // Crea una funzione eseguiOperazione.
 // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
 
+function somma(a, b) {
+    return a + b;
+}
+
+function moltiplicazione(a, b) {
+    return a * b;
+}
+
+function eseguiOperazione(n1, n2, operatore) {
+    return operatore(n1, n2);
+}
+
+console.log("Eseguo somma", (eseguiOperazione(6, 6, somma)));
+console.log("Eseguo moltiplicazione", (eseguiOperazione(6, 6, moltiplicazione)));
+
 // Snack 4
 // Crea un generatore di funzioni creaTimer.
 // Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
+
+function creaTimer(tempo) {
+    return function () {
+        setTimeout(() => {
+            console.log("Tempo scaduto!");
+        }, tempo);
+    }
+}
+
+const timer = creaTimer(2000)
+
+console.log("Avvio timer...");
+timer();
 
 // Snack 5
 // Crea una funzione stampaOgniSecondo con setInterval.
