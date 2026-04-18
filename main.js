@@ -1,6 +1,6 @@
-// // Snack 1 
-// // Crea una funzione che somma due numeri.
-// // Crea una funzione dichiarativa chiamata somma che accetta due numeri e restituisce la loro somma.
+// Snack 1 
+// Crea una funzione che somma due numeri.
+// Crea una funzione dichiarativa chiamata somma che accetta due numeri e restituisce la loro somma.
 
 // function somma(a, b) {
 //     return a + b;
@@ -8,7 +8,7 @@
 
 // console.log("Funzione dichiarativa: La somma dei due numeri è:", somma(10, 15)); // Output: 25
 
-// // Poi, definisci la stessa funzione somma ma come funzione anonima assegnata a una variabile
+// Poi, definisci la stessa funzione somma ma come funzione anonima assegnata a una variabile
 
 // const sommaNoName = function (a, b) {
 //     return a + b;
@@ -16,23 +16,23 @@
 
 // console.log("Funzione anonima: La somma dei due numeri è:", sommaNoName(5, 5)); // Output: 10
 
-// // Quindi, riscrivi la funzione somma con la sintassi delle arrow functions.
+// Quindi, riscrivi la funzione somma con la sintassi delle arrow functions.
 
 // const sommaArrow = (a, b) => a + b;
 
 // console.log("Arrow function: La somma dei due numeri è:", sommaArrow(5, 10)); // Output: 15
 
-// // Snack 2
-// // Crea una arrow function che calcola il quadrato di un numero.
-// // Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
+// Snack 2
+// Crea una arrow function che calcola il quadrato di un numero.
+// Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
 
 // const quadrato = n => n * n;
 
 // console.log("Il quadrato di n è:", quadrato(8)); // Output: 64
 
-// // Snack 3
-// // Crea una funzione eseguiOperazione.
-// // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
+// Snack 3
+// Crea una funzione eseguiOperazione.
+// Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
 
 // function somma(a, b) {
 //     return a + b;
@@ -66,9 +66,9 @@
 // console.log("Avvio timer...");
 // timer();
 
-// // Snack 5
-// // Crea una funzione stampaOgniSecondo con setInterval.
-// // Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+// Snack 5
+// Crea una funzione stampaOgniSecondo con setInterval.
+// Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
 
 // function stampaOgniSecondo(msg) {
 //     return setInterval(() => {
@@ -77,9 +77,9 @@
 // }
 // stampaOgniSecondo("Ciao ogni secondo!");
 
-// // Snack 6
-// // Crea un contatore automatico con setInterval.
-// // Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+// Snack 6
+// Crea un contatore automatico con setInterval.
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
 
 // function creaContatoreAutomatico(intervallo) {
 
@@ -141,23 +141,48 @@
 // Scrivi una funzione sequenzaOperazioni che accetta un array di operazioni (funzioni) e un tempo di intervallo.
 // Ogni operazione deve essere eseguita in sequenza con un ritardo uguale al tempo di intervallo.
 
-function sequenzaOperazioni(operazioni, intervallo) {
+// function sequenzaOperazioni(operazioni, intervallo) {
 
-	operazioni.forEach((operazione, index) => {
-		setTimeout(() => {
-			operazione();
-		}, intervallo * index);
-	});
+// 	operazioni.forEach((operazione, index) => {
+// 		setTimeout(() => {
+// 			operazione();
+// 		}, intervallo * index);
+// 	});
 
-}
+// }
 
-sequenzaOperazioni([
-	() => console.log("Operazione 1"),
-	() => console.log("Operazione 2"),
-	() => console.log("Operazione 3")
-], 2000);
+// sequenzaOperazioni([
+// 	() => console.log("Operazione 1"),
+// 	() => console.log("Operazione 2"),
+// 	() => console.log("Operazione 3")
+// ], 2000);
 
 // Snack 10 (Bonus)
 // Creare un throttler per limitare l’esecuzione di una funzione.
 // Scrivi una funzione creaThrottler che accetta una funzione e un tempo `limite`.
 // Restituisce una nuova funzione che, quando chiamata ripetutamente, esegue l'operazione originale al massimo una volta ogni n millisecondi.
+
+function creaThrottler(callback, limite) {
+
+	let ultimaEsecuzione = 0;
+
+	return function (...args) {
+
+		const ora = Date.now();
+
+		if (ora - ultimaEsecuzione >= limite) {
+			ultimaEsecuzione = ora;
+			callback(...args);
+		} else {
+			console.log("Non posso eseguire!");
+		}
+
+	}
+
+}
+
+const throttledLog = creaThrottler(() => console.log
+	("Eseguito!"), 2000);
+
+throttledLog();
+throttledLog();
