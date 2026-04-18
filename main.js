@@ -100,23 +100,41 @@
 // Crea una funzione che ferma un timer dopo un certo tempo.
 // Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
 
-function eseguiFerma(msg, interval, duration) {
-	
-	const intervalId = setInterval(() => {
-		console.log(msg);
-	}, interval);
+// function eseguiFerma(msg, interval, duration) {
 
-	setTimeout(() => {
-		clearInterval(intervalId);
-	}, duration);
+// 	const intervalId = setInterval(() => {
+// 		console.log(msg);
+// 	}, interval);
 
-}
+// 	setTimeout(() => {
+// 		clearInterval(intervalId);
+// 	}, duration);
 
-eseguiFerma("Eseguo...", 1000, 4000);
+// }
+
+// eseguiFerma("Eseguo...", 1000, 4000);
 
 // Snack 8 (Bonus)
 // Crea una funzione che simula un conto alla rovescia.
 // Scrivi una funzione contoAllaRovescia che accetta un numero n e stampa il conto alla rovescia da n a 0, con un intervallo di 1 secondo tra ogni numero. Quando arriva a 0, stampa "Tempo scaduto!" e interrompe il timer.
+
+function contoAllaRovescia(n) {
+
+	let contatore = n;
+
+	const intervalId = setInterval(() => {
+		if (contatore > 0) {
+			console.log(contatore);
+			contatore--;
+		} else {
+			console.log("Tempo scaduto!")
+			clearInterval(intervalId)
+		}
+	}, 1000)
+
+}
+
+contoAllaRovescia(5);
 
 // Snack 9 (Bonus)
 // Creare una funzione che esegue una sequenza di operazioni con ritardi.
